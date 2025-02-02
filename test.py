@@ -1,5 +1,6 @@
 import spacy
 from spacy.matcher import Matcher
+from spacy import displacy
 import re
 import pdfplumber
 
@@ -73,4 +74,8 @@ for match_id, start, end in matches:
     if match_label == "EMAIL":
         parsed_resume["Email"] = span.text
 
-print(parsed_resume)
+# STEP 8 - Output to HTML with colored organization
+if __name__ == "__main__":
+    html = displacy.render(doc, style="ent")
+    print(html)
+
