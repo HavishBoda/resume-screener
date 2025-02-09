@@ -1,14 +1,3 @@
-# some useful regex
-import re
-text = "http://mystuff hello there        w \n          é, à, ö, ñ 漢 (Chinese), こんにちは (Japanese), به متنی(Persian)"
-
-# clean links
-text = re.sub(r"http\S+", " ", text)
-# remove all non ascii
-text = re.sub(r"[^\x00-\x7f]", " ", text)
-# remove extra whitespace
-text = re.sub(r"\s+", " ", text)
-
 # reading in data
 import pandas as pd
 data = pd.read_csv('UpdatedResumeDataSet.csv')
@@ -74,3 +63,4 @@ X_train, X_test, y_train, y_test = train_test_split(
 # choose highest freq label in neighbors
 model = KNeighborsClassifier()
 model.fit(X_train, y_train)
+
